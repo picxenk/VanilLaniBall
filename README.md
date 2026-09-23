@@ -1,6 +1,8 @@
 # VanilLaniBall
 Vanilla Animation Ball, and it is a game.
 
+- Play : https://metakits.cc/VanilLaniBall/
+
 # Memo
 Claude Opus 5.5의 바닐라 버전의 애니메이션 예제를 보고는,
 - https://codepen.io/editor/ChetasLua/pen/01a0cadf-5b81-756f-8647-8cf5a47e7adf
