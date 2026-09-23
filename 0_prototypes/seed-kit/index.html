@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seed Kit · Hello</title>
+<!-- ES 모듈이라 file:// 로는 열리지 않는다. 이 폴더에서:  python3 -m http.server 8000  →  http://localhost:8000 -->
+<style>
+:root{--ground:#0b1517;--ink:#e7dec8;--muted:#8fa4a2;--accent:#d04b40;--line:rgba(231,222,200,.18);color-scheme:dark}
+html,body{height:100%;margin:0;background:var(--ground);color:var(--ink)}
+[hidden]{display:none!important}
+body{font:14px/1.4 system-ui,-apple-system,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px;box-sizing:border-box;overflow:hidden}
+#frame,#bar,#hint{width:min(100%,calc((100vh - 120px) * 16 / 9))}
+#frame{position:relative;aspect-ratio:16/9;border-radius:3px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.5),0 0 0 1px var(--line)}
+canvas{display:block;width:100%;height:100%;cursor:crosshair;touch-action:none}
+#start{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:6px;border:0;border-radius:0;padding:0;color:var(--ink);cursor:pointer;background:radial-gradient(ellipse at center,rgba(6,14,16,.1),rgba(6,14,16,.6));font:inherit}
+#start .ring{width:80px;height:80px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center}
+#start .tri{border-left:24px solid var(--accent);border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:7px}
+#start .name{font:italic clamp(26px,4.5vw,56px) ui-serif,Georgia,serif;margin-top:10px}
+#start .spec{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+#bar{display:flex;align-items:center;gap:10px}
+button{font:inherit;font-size:13px;color:var(--ink);background:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer;white-space:nowrap}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#scrub{flex:1;accent-color:var(--accent)}
+#tc{font:12px ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;color:var(--muted)}
+#hint{margin:0;color:var(--muted);font-size:12px}
+html.bare body{padding:0}html.bare #bar,html.bare #hint{display:none}html.bare #frame{width:100vw;border-radius:0;box-shadow:none}
+</style>
+</head>
+<body>
+<div id="frame">
+  <canvas id="film" width="1920" height="1080" aria-label="Hello: 종이 공 하나가 튀어 들어오고 글자가 한 컷씩 놓인다."></canvas>
+  <button id="start" aria-label="Play with sound"><span class="ring"><span class="tri"></span></span><span class="name">Hello</span><span class="spec">4 s · 60 fps · sound on</span></button>
+</div>
+<div id="bar">
+  <button id="pp">Play</button>
+  <input id="scrub" type="range" min="0" max="239" value="0" aria-label="Scrub">
+  <span id="tc">0.00 / 4.00</span>
+  <button id="sm">Stop-motion</button>
+  <button id="snd">Sound off</button>
+</div>
+<p id="hint">공을 클릭해 차 보기 · Space 재생/정지 · ←→ 한 컷 · S 스톱모션 · M 음소거</p>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
